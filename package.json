@@ -1,0 +1,40 @@
+{
+  "name": "effector-storify",
+  "version": "0.2.0",
+  "description": "Effector utils for storify Effect/Event",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:darky/effector-storify.git"
+  },
+  "keywords": [
+    "effector",
+    "effect",
+    "event",
+    "store",
+    "tools",
+    "utils",
+    "storify"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc",
+    "prepublishOnly": "npm run build",
+    "test": "npm run build && node dist/test.js"
+  },
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts"
+  ],
+  "author": "Vladislav Botvin",
+  "license": "MIT",
+  "dependencies": {
+    "effector": "^22.1.2"
+  },
+  "devDependencies": {
+    "rimraf": "3.0.2",
+    "typescript": "4.5.2",
+    "uvu": "0.5.2"
+  }
+}
