@@ -1,10 +1,10 @@
 import { createStore, Effect, Event, is, restore, Store } from "effector";
 
-export function fx$last<Params, Done, Fail>(
-  fx: Effect<Params, Done, Fail> & { $last?: Store<Done> }
-): Effect<Params, Done, Fail> & { $last: Store<Done> } {
+export function fx$last<T, Params, Done, Fail>(
+  fx: Effect<Params, Done, Fail> & { $last?: Store<Done> } & T
+): Effect<Params, Done, Fail> & { $last: Store<Done> } & T {
   if (fx.$last) {
-    return fx as Effect<Params, Done, Fail> & { $last: Store<Done> };
+    return fx as Effect<Params, Done, Fail> & { $last: Store<Done> } & T;
   }
 
   if (!is.effect(fx)) {
@@ -15,11 +15,11 @@ export function fx$last<Params, Done, Fail>(
   return Object.assign(fx, { $last });
 }
 
-export function ev$last<Payload>(
-  ev: Event<Payload> & { $last?: Store<Payload> }
-): Event<Payload> & { $last: Store<Payload> } {
+export function ev$last<T, Payload>(
+  ev: Event<Payload> & { $last?: Store<Payload> } & T
+): Event<Payload> & { $last: Store<Payload> } & T {
   if (ev.$last) {
-    return ev as Event<Payload> & { $last: Store<Payload> };
+    return ev as Event<Payload> & { $last: Store<Payload> } & T;
   }
 
   if (!is.event(ev)) {
@@ -30,11 +30,11 @@ export function ev$last<Payload>(
   return Object.assign(ev, { $last });
 }
 
-export function fx$all<Params, Done, Fail>(
-  fx: Effect<Params, Done, Fail> & { $all?: Store<Done[]> }
-): Effect<Params, Done, Fail> & { $all: Store<Done[]> } {
+export function fx$all<T, Params, Done, Fail>(
+  fx: Effect<Params, Done, Fail> & { $all?: Store<Done[]> } & T
+): Effect<Params, Done, Fail> & { $all: Store<Done[]> } & T {
   if (fx.$all) {
-    return fx as Effect<Params, Done, Fail> & { $all: Store<Done[]> };
+    return fx as Effect<Params, Done, Fail> & { $all: Store<Done[]> } & T;
   }
 
   if (!is.effect(fx)) {
@@ -45,11 +45,11 @@ export function fx$all<Params, Done, Fail>(
   return Object.assign(fx, { $all });
 }
 
-export function ev$all<Payload>(
-  ev: Event<Payload> & { $all?: Store<Payload[]> }
-): Event<Payload> & { $all: Store<Payload[]> } {
+export function ev$all<T, Payload>(
+  ev: Event<Payload> & { $all?: Store<Payload[]> } & T
+): Event<Payload> & { $all: Store<Payload[]> } & T {
   if (ev.$all) {
-    return ev as Event<Payload> & { $all: Store<Payload[]> };
+    return ev as Event<Payload> & { $all: Store<Payload[]> } & T;
   }
 
   if (!is.event(ev)) {

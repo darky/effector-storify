@@ -48,12 +48,12 @@ test("ev$all - error", () => {
   throws(() => ev$all(createStore(0) as any));
 });
 
-// test("composition", () => {
-//   const fx = fx$all(fx$last(createEffect<number, number>((x) => x)));
-//   fx(0);
-//   fx(1);
-//   equal(fx.$last.getState() + 1, 2);
-//   equal(fx.$all.getState().concat(2), [0, 1, 2]);
-// });
+test("composition", () => {
+  const fx = fx$all(fx$last(createEffect<number, number>((x) => x)));
+  fx(0);
+  fx(1);
+  equal(fx.$last.getState() + 1, 2);
+  equal(fx.$all.getState().concat(2), [0, 1, 2]);
+});
 
 test.run();
