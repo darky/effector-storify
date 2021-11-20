@@ -16,7 +16,7 @@ fx.$last.getState(); // 1
 #### ev$last
 
 ```typescript
-const ev = fx$last(createEvent<number>());
+const ev = ev$last(createEvent<number>());
 ev(0);
 ev(1);
 ev.$last.getState(); // 1
@@ -34,7 +34,7 @@ fx.$all.getState(); // [0, 1]
 #### ev$all
 
 ```typescript
-const ev = fx$all(createEvent<number>());
+const ev = ev$all(createEvent<number>());
 ev(0);
 ev(1);
 ev.$all.getState(); // [0, 1]
