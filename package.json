@@ -1,6 +1,6 @@
 {
   "name": "effector-storify",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Effector utils for storify Effect/Event",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
