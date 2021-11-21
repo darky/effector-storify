@@ -40,6 +40,24 @@ ev(1);
 ev.$all.getState(); // [0, 1]
 ```
 
+#### fx$flatAll
+
+```typescript
+const fx = fx$flatAll(createEffect<number, number[]>((x) => [x]));
+fx(0);
+fx(1);
+fx.$flatAll.getState(); // [0, 1]
+```
+
+#### ev$flatAll
+
+```typescript
+const ev = ev$flatAll(createEvent<number[]>());
+ev([0]);
+ev([1]);
+ev.$flatAll.getState(); // [0, 1]
+```
+
 ## Related
 
 - [effector-async-local-storage](https://github.com/darky/effector-async-local-storage) - Effector Domain based on AsyncLocalStorage
